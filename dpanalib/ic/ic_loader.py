@@ -86,4 +86,5 @@ class ICLoader:
     
     @classmethod
     def _deref_multi(cls, data: dict[str, Any], keys: list[str]) -> TomlData:
-        return reduce(lambda d, key: d.get(key, None), keys, data)
+        # Walk the path through data using a list of keys
+        return reduce((lambda d, key: d.get(key, None)), keys, data)
