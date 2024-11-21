@@ -3,6 +3,10 @@
 # pylint: disable=wrong-import-position
 
 import sys
+from typing import Any
+
+import tomllib
+
 sys.path.insert(1, './src') # Make VSCode happy...
 
 from dpanalib.ic.ic_definition import ICDefinition
@@ -31,3 +35,8 @@ def pin_list_o_16L8() -> list[int]:
 def ic_definition_PAL16L8() -> ICDefinition:
     with open('examples/PAL16L8.toml', 'rb') as def_file:    
         return ICLoader.extract_definition_from_buffered_reader(def_file)
+    
+@pytest.fixture
+def toml_structure_PAL16L8() -> dict[str, Any]:
+    with open('examples/PAL16L8.toml', 'rb') as def_file:
+        return tomllib.load(def_file)

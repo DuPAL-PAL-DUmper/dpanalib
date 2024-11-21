@@ -2,3 +2,4 @@ setuptools==72.2.0
 build==1.2.1
 pytest==8.3.2
 mypy==1.11.1
+deepdiff==8.0.1
