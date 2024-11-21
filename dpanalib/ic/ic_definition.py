@@ -125,6 +125,7 @@ class ICDefinition:
 
         self.pin_rot_shift = pin_rot_shift
 
+        self.pin_names_override = pin_names_override
         self.pin_names = self._build_pin_names(zif_map, in_pins, io_pins, o_pins, clk_pins, q_pins, oe_l_pins, oe_h_pins, pin_names_override)
 
         # Check the package
