@@ -1,6 +1,6 @@
 """Contains the class that defines the connections of an IC"""
 
-from typing import final
+from typing import Any, final
 
 @final
 class ICDefinition:
@@ -85,6 +85,9 @@ class ICDefinition:
                 pin_names[i] = strp_name
 
         return pin_names
+
+    def __getitem__(self, key) -> Any:
+        return getattr(self, key)
 
     def __init__(self,
                  name: str, 
