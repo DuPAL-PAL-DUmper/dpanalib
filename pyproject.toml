@@ -4,7 +4,7 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "dpanalib"
-version = "0.0.2"
+version = "0.0.3"
 description = "Library with some utility code for the dppeeper and associated tools"
 authors = [
    { name = "Fabio Battaglia", email = "hkzlabnet@gmail.com" }

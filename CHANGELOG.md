@@ -1,6 +1,9 @@
 # Changelog
 Changelog for dpanalib
 
+## [0.0.3] - 2024-11-??
+- Reworked IC Loader code
+
 ## [0.0.2] - 2024-11-21
 - Add code to generate a TOML string from an ICDefinition
 
