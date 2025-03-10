@@ -2,12 +2,13 @@
 
 from io import BufferedReader
 from typing import Any, final
-from dpanalib.ic.ic_definition import ICDefinition
 
 from functools import reduce
-
 import tomllib
 import tomli_w
+
+from dpanalib.ic.ic_definition import ICDefinition
+
 
 type TomlData = int | str | list[str] | list[int] | None
 
@@ -74,7 +75,7 @@ class ICLoader:
     @classmethod
     def _deref_multi(cls, data: dict[str, Any], keys: list[str]) -> TomlData:
         # Walk the path through data using a list of keys
-        return reduce((lambda d, key: d.get(key, None)), keys, data)
+        return reduce((lambda d, key: d.get(key, None)), keys, data) # type: ignore [return-value]
 
     @classmethod
     def rebuild_toml_from_definition(cls, definition: ICDefinition) -> str:
@@ -104,4 +105,4 @@ class ICLoader:
         # Build a dictionary containing all the parameters to instantiate an ICDefinition
         ic_def_parameters: dict[str, TomlData] = { k:dv for k, v in cls._TOML_KEY_MAP.items() if (dv:=cls._deref_multi(toml_data, v)) is not None }
 
-        return ICDefinition(**ic_def_parameters)
+        return ICDefinition(**ic_def_parameters) # type: ignore [arg-type]
